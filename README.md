@@ -78,8 +78,3 @@ Follow these instructions to get a copy of the project up and running on your lo
    ```
    *The frontend will run on `http://localhost:5173` (or the port Vite provides).*
 
-## Contributing
-Contributions, issues, and feature requests are welcome!
-
-## License
-This project is open-source and available under the ISC License.
