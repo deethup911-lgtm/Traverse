@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+motor
+pyjwt
+passlib[bcrypt]
+google-genai
+python-dotenv
+pydantic
+pydantic-settings
+bcrypt
