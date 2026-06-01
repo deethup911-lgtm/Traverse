@@ -28,8 +28,39 @@ Follow these instructions to get a copy of the project up and running on your lo
 - Python 3.9 or higher installed on your machine.
 - MongoDB installed and running locally.
 - A Google Gemini API Key from Google AI Studio.
+- Docker and Docker Compose (optional, for containerized setup).
 
-### Installation
+### Running with Docker (Recommended)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/deethup911-lgtm/traverse.git
+   cd traverse
+   ```
+
+2. **Setup Environment Variables**
+   Create a `.env` file in the `backend` directory:
+   ```env
+   PORT=8000
+   MONGO_URI=mongodb://host.docker.internal:27017/traverse
+   JWT_SECRET=your_super_secret_key
+   GEMINI_API_KEY=your_gemini_api_key
+   ```
+   *(Note: Use `host.docker.internal` to connect to your local MongoDB from within the Docker container).*
+
+   Create a `.env` file in the `frontend` directory:
+   ```env
+   VITE_API_URL=http://localhost:8000/api
+   ```
+
+3. **Start the containers**
+   ```bash
+   docker-compose up --build
+   ```
+   - The frontend will be available at `http://localhost:5173`
+   - The backend will be available at `http://localhost:8000`
+
+### Manual Local Installation
 
 1. **Clone the repository**
    ```bash
@@ -43,9 +74,9 @@ Follow these instructions to get a copy of the project up and running on your lo
    cd backend
    pip install -r requirements.txt
    ```
-   Create a `.env` file in the `backend` directory based on the provided `.env.example`:
+   Create a `.env` file in the `backend` directory:
    ```env
-   PORT=5000
+   PORT=8000
    MONGO_URI=mongodb://localhost:27017/traverse
    JWT_SECRET=your_super_secret_key
    GEMINI_API_KEY=your_gemini_api_key
@@ -59,17 +90,17 @@ Follow these instructions to get a copy of the project up and running on your lo
    ```
    Create a `.env` file in the `frontend` directory:
    ```env
-   VITE_API_URL=http://localhost:5000/api
+   VITE_API_URL=http://localhost:8000/api
    ```
 
-### Running the Application
+### Running the Application Manually
 
 1. **Start the backend server**
    ```bash
    cd backend
-   uvicorn app.main:app --port 5000 --reload
+   uvicorn app.main:app --port 8000 --reload
    ```
-   *The backend will run on `http://localhost:5000`*
+   *The backend will run on `http://localhost:8000`*
 
 2. **Start the frontend development server**
    ```bash
