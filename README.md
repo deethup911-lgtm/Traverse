@@ -77,4 +77,9 @@ Follow these instructions to get a copy of the project up and running on your lo
    npm run dev
    ```
    *The frontend will run on `http://localhost:5173` (or the port Vite provides).*
+   ---
 
+
+   ## Author
+
+   **Deethu P**
